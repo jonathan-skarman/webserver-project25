@@ -1,1 +1,17 @@
 h2 attendance
+
+p Event: #{@event["name"]}
+	form action="/attendance/new" method="post"
+		input type="hidden" name="event_id" value="#{@event["id"]}"
+
+		- @users.each do |user|
+			input type="hidden" name="user_id" value="#{user["id"]}"
+			input type="checkbox" name="attended" value="true"
+
+
+		label for="attended" Attended
+		input type="submit" value="Submit"
+		br
+
+
+		-# fuck inte klar

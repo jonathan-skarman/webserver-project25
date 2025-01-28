@@ -85,3 +85,13 @@ post ('/events/new') do
 	db.execute("INSERT INTO events (name, time, place) VALUES (?, ?, ?)", [name, time, place])
 	redirect('/events/events')
 end
+
+get ('/events/:id/attendance') do
+	db = SQLite3::Database.new("db/database.db")
+	db.results_as_hash = true
+	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
+	@attendance = db.execute("SELECT * FROM attendance WHERE event_id = ?", params[:id])
+	@users = db.execute("SELECT * FROM users")
+	p @users
+	slim(:"events/attendance")
+end
