@@ -1,0 +1,16 @@
+h2 events
+
+ol 
+	- @events.each do |event|
+		li
+			ul
+				li
+					| Name: 
+					= event["name"]
+				li
+					| Time: 
+					= event["time"]
+				li
+					| Place: 
+					= event["place"]
+		br
