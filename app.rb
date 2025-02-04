@@ -6,6 +6,20 @@ require 'bcrypt'
 
 enable :sessions
 
+helpers do
+	def database(path)
+		db = SQLite3::Database.new(path)
+		db.results_as_hash = true
+		return db
+	end
+end
+
+before ('/protected/*') do #later
+	if session[:user_id] == nil
+		redirect('/')
+	end
+end
+
 get ('/') do
 	if session[:user_id] == nil
 		redirect('/users/login')
@@ -15,6 +29,9 @@ get ('/') do
 end
 
 get ('/home') do
+	db = database("db/database.db")
+	@user_info = db.execute("SELECT * FROM users WHERE ID = ?", session[:user_id]).first
+
 	slim(:home)
 end
 
@@ -23,12 +40,11 @@ get ('/users/login') do
 end
 
 post ('/users/login') do
-	db = SQLite3::Database.new("db/database.db")
-	db.results_as_hash = true
+	db = database("db/database.db")
 	result = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
 	if result
 		if BCrypt::Password.new(result["password"]) == params[:password]
-			session[:user_id] = result["ID"]
+			session[:user_id] = result["id"]
 			redirect('/home')
 		else
 			redirect('/users/login')
@@ -43,8 +59,7 @@ get ('/users/signup') do
 end
 
 post ('/users/signup') do
-	db = SQLite3::Database.new("db/database.db")
-	db.results_as_hash = true
+	db = database("db/database.db")
 	username = params[:username]
 	email = params[:email]
 	password = params[:password]
@@ -53,8 +68,7 @@ post ('/users/signup') do
 end
 
 get ('/users/users') do
-	db = SQLite3::Database.new("db/database.db")
-	db.results_as_hash = true
+	db = database("db/database.db")
 	@users = db.execute("SELECT * FROM users")
 	slim(:"users/users")
 end
@@ -65,8 +79,7 @@ get ('/users/logout') do
 end
 
 get ('/events/events') do
-	db = SQLite3::Database.new("db/database.db")
-	db.results_as_hash = true
+	db = database("db/database.db")
 	@events = db.execute("SELECT * FROM events")
 	slim(:"events/events")
 end
@@ -76,8 +89,7 @@ get ('/events/create') do
 end
 
 post ('/events/new') do
-	db = SQLite3::Database.new("db/database.db")
-	db.results_as_hash = true
+	db = database("db/database.db")
 	name = params[:name]
 	time = params[:time]
 	place = params[:place]
@@ -87,11 +99,22 @@ post ('/events/new') do
 end
 
 get ('/events/:id/attendance') do
-	db = SQLite3::Database.new("db/database.db")
-	db.results_as_hash = true
+	db = database("db/database.db")
 	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
 	@attendance = db.execute("SELECT * FROM attendance WHERE event_id = ?", params[:id])
 	@users = db.execute("SELECT * FROM users")
 	p @users
 	slim(:"events/attendance")
+end
+
+post ('/events/:id/attendance/new') do
+	db = database("db/database.db")
+
+	attended_user_ids = params[:attended] || []
+	event_id = params[:event_id]
+
+	attended_user_ids.each do |user_id|
+		db.execute("INSERT INTO attendance (event_id, user_id) VALUES (?, ?)", [event_id, user_id])
+	end
+	redirect('/events/events')
 end
