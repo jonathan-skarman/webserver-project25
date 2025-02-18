@@ -3,6 +3,7 @@ require 'slim'
 require 'sqlite3'
 require 'sinatra/reloader'
 require 'bcrypt'
+require_relative 'model.rb'
 
 enable :sessions
 
@@ -45,6 +46,7 @@ post ('/users/login') do
 	if result
 		if BCrypt::Password.new(result["password"]) == params[:password]
 			session[:user_id] = result["id"]
+			session[:access_lvl] = result["accesslvl"]
 			redirect('/home')
 		else
 			redirect('/users/login')
@@ -103,18 +105,31 @@ get ('/events/:id/attendance') do
 	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
 	@attendance = db.execute("SELECT * FROM attendance WHERE event_id = ?", params[:id])
 	@users = db.execute("SELECT * FROM users")
-	p @users
+
+	@attendance_ids = []
+	@attendance.each do |attendance|
+		@attendance_ids << attendance["user_id"]
+	end
+
 	slim(:"events/attendance")
 end
 
 post ('/events/:id/attendance/new') do
 	db = database("db/database.db")
 
+	all_users = db.execute("SELECT * FROM users")
+
 	attended_user_ids = params[:attended] || []
 	event_id = params[:event_id]
 
 	attended_user_ids.each do |user_id|
 		db.execute("INSERT INTO attendance (event_id, user_id) VALUES (?, ?)", [event_id, user_id])
+	end
+
+	all_users.each do |user|
+		if !attended_user_ids.include?(user["id"].to_s) && db.execute("SELECT * FROM attendance WHERE event_id = ? AND user_id = ?", [event_id, user["id"]]).length > 0
+			db.execute("DELETE FROM attendance WHERE event_id = ? AND user_id = ?", [event_id, user["id"]])
+		end
 	end
 	redirect('/events/events')
 end

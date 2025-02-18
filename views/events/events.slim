@@ -13,7 +13,10 @@ ol
 				li
 					| Place: 
 					= event["place"]
-				li
-					| Take attendance:
-					a href="/events/#{event["id"]}/attendance" Take attendance
+				- if session["access_lvl"] >= 2
+					li
+						| Take attendance:
+						a href="/events/#{event["id"]}/attendance" Take attendance
 		br
+
+-p session

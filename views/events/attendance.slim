@@ -3,16 +3,15 @@ h2 attendance
 p = "Event: #{@event["name"]}"
 
 
-
-
-
--# fuck inte klar
-
 form action="/events/:id/attendance/new" method="post"
   input type="hidden" name="event_id" value="#{@event['id']}"
   - @users.each do |user|
     p = "#{user['username']}"
     input type="hidden" name="user_ids[]" value="#{user['id']}"
-    input type="checkbox" name="attended[]" value="#{user['id']}"
+
+    -if @attendance_ids.include?(user["id"])
+      input type="checkbox" name="attended[]" value="#{user['id']}" checked = "true"
+    -else
+      input type="checkbox" name="attended[]" value="#{user['id']}"
   br
   input type="submit" value="Submit"
