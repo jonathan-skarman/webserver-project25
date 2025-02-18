@@ -1,19 +1,9 @@
 require 'sinatra'
 require 'slim'
-require 'sqlite3'
 require 'sinatra/reloader'
-require 'bcrypt'
 require_relative 'model.rb'
 
 enable :sessions
-
-helpers do
-	def database(path)
-		db = SQLite3::Database.new(path)
-		db.results_as_hash = true
-		return db
-	end
-end
 
 before ('/protected/*') do #later
 	if session[:user_id] == nil
@@ -30,9 +20,7 @@ get ('/') do
 end
 
 get ('/home') do
-	db = database("db/database.db")
-	@user_info = db.execute("SELECT * FROM users WHERE ID = ?", session[:user_id]).first
-
+	@user_info = db_user_info
 	slim(:home)
 end
 
@@ -41,16 +29,11 @@ get ('/users/login') do
 end
 
 post ('/users/login') do
-	db = database("db/database.db")
-	result = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
-	if result
-		if BCrypt::Password.new(result["password"]) == params[:password]
-			session[:user_id] = result["id"]
-			session[:access_lvl] = result["accesslvl"]
-			redirect('/home')
-		else
-			redirect('/users/login')
-		end
+	if password_verification(params[:username], params[:password])
+		user = db_user_info
+		session[:user_id] = user["id"]
+		session[:access_lvl] = user["accesslvl"]
+		redirect('/home')
 	else
 		redirect('/users/login')
 	end
