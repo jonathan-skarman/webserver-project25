@@ -30,7 +30,8 @@ end
 
 post ('/users/login') do
 	if password_verification(params[:username], params[:password])
-		user = db_user_info
+		db = database("db/database.db")
+		user = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
 		session[:user_id] = user["id"]
 		session[:access_lvl] = user["accesslvl"]
 		redirect('/home')
@@ -114,5 +115,41 @@ post ('/events/:id/attendance/new') do
 			db.execute("DELETE FROM attendance WHERE event_id = ? AND user_id = ?", [event_id, user["id"]])
 		end
 	end
+
+	redirect('/events/events')
+end
+
+get ('/events/:id/edit') do
+	db = database("db/database.db")
+	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
+	@name = @event["name"]
+	@time = @event["time"]
+	@place = @event["place"]
+	@id = params[:id]
+	slim(:"events/edit")
+end
+
+post ('/events/update') do
+	db = database("db/database.db")
+	name = params[:name]
+	time = params[:time]
+	place = params[:place]
+
+	if name != ""
+		db.execute("UPDATE events SET name = ? WHERE ID = ?", [name, params[:id]])
+	end
+	if time != ""
+		db.execute("UPDATE events SET time = ? WHERE ID = ?", [time, params[:id]])
+	end
+	if place != ""
+		db.execute("UPDATE events SET place = ? WHERE ID = ?", [place, params[:id]])
+	end
+
+	redirect('/events/events')
+end
+
+get('/events/:id/delete') do
+	db = database("db/database.db")
+	db.execute("DELETE FROM events WHERE ID = ?", params[:id])
 	redirect('/events/events')
 end

@@ -1,0 +1,8 @@
+h2 Edit event
+
+form action="/events/update" method="post" 
+	input type="hidden" name="id" value= @id
+	input type="text" name="name" placeholder= @name
+	input type="datetime-local" name="time" placeholder= @time
+	input type="text" name="place" placeholder= @place
+	input type="submit" value="Edit Event"

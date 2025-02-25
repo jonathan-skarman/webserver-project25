@@ -13,10 +13,15 @@ ol
 				li
 					| Place: 
 					= event["place"]
-				- if session["access_lvl"] >= 2
-					li
-						| Take attendance:
-						a href="/events/#{event["id"]}/attendance" Take attendance
+				- if !session["access_lvl"].nil?
+					- if session["access_lvl"] >= 2
+						li
+							| Take attendance:
+							a href="/events/#{event["id"]}/attendance" Take attendance
+						li 
+							| Edit event:
+							a href="/events/#{event["id"]}/edit" Edit event
+						li
+							| Delete event:
+							a href="/events/#{event["id"]}/delete" Delete event
 		br
-
--p session
