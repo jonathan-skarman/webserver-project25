@@ -18,6 +18,7 @@ ol
 						li
 							| Take attendance:
 							a href="/events/#{event["id"]}/attendance" Take attendance
+					- if session["access_lvl"] >= 3
 						li 
 							| Edit event:
 							a href="/events/#{event["id"]}/edit" Edit event

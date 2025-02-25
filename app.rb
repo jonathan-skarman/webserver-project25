@@ -153,3 +153,29 @@ get('/events/:id/delete') do
 	db.execute("DELETE FROM events WHERE ID = ?", params[:id])
 	redirect('/events/events')
 end
+
+get ('/users/:id/promote') do
+	db = database("db/database.db")
+	@user = db.execute("SELECT * FROM users WHERE ID = ?", params[:id]).first
+	@id = params[:id]
+	slim(:"users/promote")
+end
+
+post ('/users/promote') do
+	db = database("db/database.db")
+	accesslvl = params[:access_lvl]
+	id = params[:id]
+
+	if ![1, 2, 3].include?(accesslvl.to_i)
+		redirect('/users/users')
+	end
+
+	db.execute("UPDATE users SET accesslvl = ? WHERE ID = ?", [accesslvl, id])
+	redirect('/users/users')
+end
+
+get ('/users/:id/delete') do
+	db = database("db/database.db")
+	db.execute("DELETE FROM users WHERE ID = ?", params[:id])
+	redirect('/users/users')
+end

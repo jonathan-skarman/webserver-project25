@@ -10,4 +10,15 @@ ol
 				li
 					| Email: 
 					= user["email"]
+				- if !session["access_lvl"].nil?
+					- if session["access_lvl"] >= 3
+						li
+							| Access Level:
+							= user["accesslvl"]
+						li 
+							| Change Access Level:
+							a href="/users/#{user["id"]}/promote" Change Access Level
+						li
+							| Delete user:
+							a href="/users/#{user["id"]}/delete" Delete user
 		br

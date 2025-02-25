@@ -1,0 +1,7 @@
+h2 Change Access Level
+h3 #{@user["username"]}
+
+form action="/users/promote" method="post"
+	input type="hidden" name="id" value= @user["id"]
+	input type="text" name="access_lvl" placeholder= @user["access_lvl"]
+	input type="submit" value="Change Access Level"
