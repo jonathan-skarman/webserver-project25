@@ -19,3 +19,10 @@ def password_verification(username, password)
 
   return BCrypt::Password.new(user["password"]) == params[:password]
 end
+
+def email_verification(email)
+	list = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "elev.ga.ntig.se"]
+	host = email.split("@").last
+
+	list.include?(host)
+end

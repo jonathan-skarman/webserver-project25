@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'slim'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require_relative 'model.rb'
 
 enable :sessions
@@ -29,13 +30,16 @@ get ('/users/login') do
 end
 
 post ('/users/login') do
-	if password_verification(params[:username], params[:password])
+	if params[:username] == "" || params[:password] == ""
+		flash[:error] = "Användarnamn och lösenord måste fyllas i"
+	elsif password_verification(params[:username], params[:password])
 		db = database("db/database.db")
 		user = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
 		session[:user_id] = user["id"]
 		session[:access_lvl] = user["accesslvl"]
 		redirect('/home')
 	else
+		flash[:error] = "Felaktigt användarnamn eller lösenord"
 		redirect('/users/login')
 	end
 end
@@ -49,8 +53,20 @@ post ('/users/signup') do
 	username = params[:username]
 	email = params[:email]
 	password = params[:password]
-	db.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", [username, email, BCrypt::Password.create(password)])
-	redirect('/users/login')
+
+	if username == "" || email == "" || password == ""
+		flash[:error] = "Alla fält måste fyllas i"
+		redirect('/users/signup')
+	elsif !email_verification(email)
+		flash[:error] = "Ogiltig e-postadress"
+		redirect('/users/signup')
+	elsif db.execute("SELECT * FROM users WHERE username = ?", username).length > 0
+		flash[:error] = "Användarnamnet är upptaget"
+		redirect('/users/signup')
+	else
+		db.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", [username, email, BCrypt::Password.create(password)])
+		redirect('/users/login')
+	end
 end
 
 get ('/users/users') do
@@ -80,7 +96,12 @@ post ('/events/new') do
 	time = params[:time]
 	place = params[:place]
 
-	db.execute("INSERT INTO events (name, time, place) VALUES (?, ?, ?)", [name, time, place])
+	if name == "" || time == "" || place == ""
+		flash[:error] = "Alla fält måste fyllas i"
+	else
+		db.execute("INSERT INTO events (name, time, place) VALUES (?, ?, ?)", [name, time, place])
+		flash[:notice] = "Eventet har skapats"
+	end
 	redirect('/events/events')
 end
 
@@ -116,6 +137,7 @@ post ('/events/:id/attendance/new') do
 		end
 	end
 
+	flash[:notice] = "Närvaron har uppdaterats"
 	redirect('/events/events')
 end
 
@@ -145,6 +167,7 @@ post ('/events/update') do
 		db.execute("UPDATE events SET place = ? WHERE ID = ?", [place, params[:id]])
 	end
 
+	flash[:notice] = "Eventet har uppdaterats"
 	redirect('/events/events')
 end
 
@@ -169,6 +192,7 @@ post ('/users/promote') do
 	if ![1, 2, 3].include?(accesslvl.to_i)
 		redirect('/users/users')
 	end
+
 
 	db.execute("UPDATE users SET accesslvl = ? WHERE ID = ?", [accesslvl, id])
 	redirect('/users/users')

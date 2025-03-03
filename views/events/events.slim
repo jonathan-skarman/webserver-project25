@@ -1,5 +1,11 @@
 h2 events
 
+- if flash[:error]
+	p.notice = flash[:error]
+
+- if flash[:notice]
+	p.notice = flash[:notice]
+
 ol 
 	- @events.each do |event|
 		li

@@ -1,5 +1,8 @@
 h2 signup
 
+- if flash[:error]
+	p.notice = flash[:error]
+
 form action="/users/signup" method="post"
 	input type="text" name="username" placeholder="Username"
 	input type="text" name="email" placeholder="Email"

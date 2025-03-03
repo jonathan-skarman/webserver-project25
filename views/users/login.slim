@@ -1,5 +1,8 @@
 h2 login
 
+- if flash[:error]
+	p.notice = flash[:error]
+
 form action="/users/login" method="post"
 	input type="text" name="username" placeholder="Username"
 	input type="password" name="password" placeholder="Password"
