@@ -8,16 +8,23 @@ def database(path)
 	return db
 end
 
-def db_user_info
+def db_user_info(id)
+	id = session[:user_id] if id.nil?
+
   db = database("db/database.db")
-	@user_info = db.execute("SELECT * FROM users WHERE ID = ?", session[:user_id]).first
+	@user_info = db.execute("SELECT * FROM users WHERE ID = ?", id).first
 end
 
 def password_verification(username, password)
   db = database("db/database.db")
-	user = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
 
-  return BCrypt::Password.new(user["password"]) == params[:password]
+	user = db.execute("SELECT * FROM users WHERE username = ?", username).first
+
+	if user.nil?
+		return false
+	end
+
+	return (BCrypt::Password.new(user["password"]) == password)
 end
 
 def email_verification(email)

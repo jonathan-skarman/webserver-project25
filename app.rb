@@ -21,7 +21,7 @@ get ('/') do
 end
 
 get ('/home') do
-	@user_info = db_user_info
+	@user_info = db_user_info(session[:user_id])
 	slim(:home)
 end
 
@@ -32,6 +32,7 @@ end
 post ('/users/login') do
 	if params[:username] == "" || params[:password] == ""
 		flash[:error] = "Användarnamn och lösenord måste fyllas i"
+		redirect('/users/login')
 	elsif password_verification(params[:username], params[:password])
 		db = database("db/database.db")
 		user = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
@@ -174,13 +175,14 @@ end
 get('/events/:id/delete') do
 	db = database("db/database.db")
 	db.execute("DELETE FROM events WHERE ID = ?", params[:id])
+	flash[:notice] = "Eventet har raderats"
 	redirect('/events/events')
 end
 
 get ('/users/:id/promote') do
 	db = database("db/database.db")
-	@user = db.execute("SELECT * FROM users WHERE ID = ?", params[:id]).first
 	@id = params[:id]
+	@user = db_user_info(@id)
 	slim(:"users/promote")
 end
 
@@ -192,7 +194,6 @@ post ('/users/promote') do
 	if ![1, 2, 3].include?(accesslvl.to_i)
 		redirect('/users/users')
 	end
-
 
 	db.execute("UPDATE users SET accesslvl = ? WHERE ID = ?", [accesslvl, id])
 	redirect('/users/users')
