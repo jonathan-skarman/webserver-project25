@@ -23,12 +23,12 @@ ol
 					- if session["access_lvl"] >= 2
 						li
 							| Take attendance:
-							a href="/events/#{event["id"]}/attendance" Take attendance
+							a href="/protected2/events/#{event["id"]}/attendance" Take attendance
 					- if session["access_lvl"] >= 3
 						li 
 							| Edit event:
-							a href="/events/#{event["id"]}/edit" Edit event
+							a href="/protected3/events/#{event["id"]}/edit" Edit event
 						li
 							| Delete event:
-							a href="/events/#{event["id"]}/delete" Delete event
+							a href="/protected3/events/#{event["id"]}/delete" Delete event
 		br

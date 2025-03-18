@@ -22,31 +22,31 @@ html lang="en"
 					- if user_info["accesslvl"] == 1
 						ul 
 							li 
-								a href="/home" Home
+								a href="/protected/home" Home
 							li 
-								a href="/events/events" Events
+								a href="/protected/events/events" Events
 							li
 								a href="/users/logout" Logout
 					- elsif user_info["accesslvl"] == 2
 						ul 
 							li 
-								a href="/home" Home
+								a href="/protected/home" Home
 							li 
-								a href="/events/events" Events
+								a href="/protected/events/events" Events
 							li 
-								a href="/users/users" Users
+								a href="/protected2/users/users" Users
 							li
 								a href="/users/logout" Logout
 					- elsif user_info["accesslvl"] == 3
 						ul 
 							li 
-								a href="/home" Home
+								a href="/protected/home" Home
 							li 
-								a href="/events/events" Events
+								a href="/protected/events/events" Events
 							li 
-								a href="/events/create" New Event
+								a href="/protected3/events/create" New Event
 							li 
-								a href="/users/users" Users
+								a href="/protected2/users/users" Users
 							li
 								a href="/users/logout" Logout
 		== yield

@@ -6,9 +6,25 @@ require_relative 'model.rb'
 
 enable :sessions
 
-before ('/protected/*') do #later
+before ('/protected/*') do
 	if session[:user_id] == nil
-		redirect('/')
+		redirect('/users/login')
+	end
+end
+
+before ('/protected2/*') do
+	if session[:user_id] == nil
+		redirect('/users/login')
+	elsif session[:access_lvl] < 2
+		redirect('/protected/home')
+	end
+end
+
+before ('/protected3/*') do
+	if session[:user_id] == nil
+		redirect('/users/login')
+	elsif session[:access_lvl] < 3
+		redirect('/protected/home')
 	end
 end
 
@@ -16,11 +32,11 @@ get ('/') do
 	if session[:user_id] == nil
 		redirect('/users/login')
 	else
-		slim(:home)
+		redirect('/protected/home')
 	end
 end
 
-get ('/home') do
+get ('/protected/home') do
 	@user_info = db_user_info(session[:user_id])
 	slim(:home)
 end
@@ -38,7 +54,7 @@ post ('/users/login') do
 		user = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
 		session[:user_id] = user["id"]
 		session[:access_lvl] = user["accesslvl"]
-		redirect('/home')
+		redirect('/protected/home')
 	else
 		flash[:error] = "Felaktigt användarnamn eller lösenord"
 		redirect('/users/login')
@@ -70,7 +86,7 @@ post ('/users/signup') do
 	end
 end
 
-get ('/users/users') do
+get ('/protected2/users/users') do
 	db = database("db/database.db")
 	@users = db.execute("SELECT * FROM users")
 	slim(:"users/users")
@@ -81,13 +97,13 @@ get ('/users/logout') do
 	redirect('/')
 end
 
-get ('/events/events') do
+get ('/protected/events/events') do
 	db = database("db/database.db")
 	@events = db.execute("SELECT * FROM events")
 	slim(:"events/events")
 end
 
-get ('/events/create') do
+get ('/protected3/events/create') do
 	slim(:"events/create")
 end
 
@@ -103,10 +119,10 @@ post ('/events/new') do
 		db.execute("INSERT INTO events (name, time, place) VALUES (?, ?, ?)", [name, time, place])
 		flash[:notice] = "Eventet har skapats"
 	end
-	redirect('/events/events')
+	redirect('/protected/events/events')
 end
 
-get ('/events/:id/attendance') do
+get ('/protected2/events/:id/attendance') do
 	db = database("db/database.db")
 	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
 	@attendance = db.execute("SELECT * FROM attendance WHERE event_id = ?", params[:id])
@@ -139,10 +155,10 @@ post ('/events/:id/attendance/new') do
 	end
 
 	flash[:notice] = "Närvaron har uppdaterats"
-	redirect('/events/events')
+	redirect('/protected/events/events')
 end
 
-get ('/events/:id/edit') do
+get ('/protected3/events/:id/edit') do
 	db = database("db/database.db")
 	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
 	@name = @event["name"]
@@ -169,17 +185,17 @@ post ('/events/update') do
 	end
 
 	flash[:notice] = "Eventet har uppdaterats"
-	redirect('/events/events')
+	redirect('/protected/events/events')
 end
 
-get('/events/:id/delete') do
+get('/protected3/events/:id/delete') do
 	db = database("db/database.db")
 	db.execute("DELETE FROM events WHERE ID = ?", params[:id])
 	flash[:notice] = "Eventet har raderats"
-	redirect('/events/events')
+	redirect('/protected/events/events')
 end
 
-get ('/users/:id/promote') do
+get ('/protected3/users/:id/promote') do
 	db = database("db/database.db")
 	@id = params[:id]
 	@user = db_user_info(@id)
@@ -192,15 +208,15 @@ post ('/users/promote') do
 	id = params[:id]
 
 	if ![1, 2, 3].include?(accesslvl.to_i)
-		redirect('/users/users')
+		redirect('/protected2/users/users')
 	end
 
 	db.execute("UPDATE users SET accesslvl = ? WHERE ID = ?", [accesslvl, id])
-	redirect('/users/users')
+	redirect('/protected2/users/users')
 end
 
-get ('/users/:id/delete') do
+get ('/protected3/users/:id/delete') do
 	db = database("db/database.db")
 	db.execute("DELETE FROM users WHERE ID = ?", params[:id])
-	redirect('/users/users')
+	redirect('/protected2/users/users')
 end
