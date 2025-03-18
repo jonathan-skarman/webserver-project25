@@ -42,6 +42,11 @@ get ('/protected/home') do
 end
 
 get ('/users/login') do
+	if session[:signup] != nil
+		@username, @email, @password = session[:signup]
+		session[:signup] = nil
+	end
+
 	slim(:"users/login")
 end
 
@@ -50,8 +55,8 @@ post ('/users/login') do
 		flash[:error] = "Användarnamn och lösenord måste fyllas i"
 		redirect('/users/login')
 	elsif password_verification(params[:username], params[:password])
-		db = database("db/database.db")
-		user = db.execute("SELECT * FROM users WHERE username = ?", params[:username]).first
+
+		user = db_user_info_username(params[:username])
 		session[:user_id] = user["id"]
 		session[:access_lvl] = user["accesslvl"]
 		redirect('/protected/home')
@@ -62,33 +67,34 @@ post ('/users/login') do
 end
 
 get ('/users/signup') do
+	@username, @email, @password = session[:signup]
+	session[:signup] = nil
 	slim(:"users/signup")
 end
 
 post ('/users/signup') do
-	db = database("db/database.db")
-	username = params[:username]
-	email = params[:email]
-	password = params[:password]
+	@username = params[:username]
+	@email = params[:email]
+	@password = params[:password]
+	session[:signup] = [@username, @email, @password]
 
-	if username == "" || email == "" || password == ""
+	if @username == "" || @email == "" || @password == ""
 		flash[:error] = "Alla fält måste fyllas i"
 		redirect('/users/signup')
-	elsif !email_verification(email)
+	elsif !email_verification(@email)
 		flash[:error] = "Ogiltig e-postadress"
 		redirect('/users/signup')
-	elsif db.execute("SELECT * FROM users WHERE username = ?", username).length > 0
+	elsif !(db_user_info_username(@username).nil?)
 		flash[:error] = "Användarnamnet är upptaget"
 		redirect('/users/signup')
 	else
-		db.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", [username, email, BCrypt::Password.create(password)])
+		db_create_user(@username, @email, @password)
 		redirect('/users/login')
 	end
 end
 
 get ('/protected2/users/users') do
-	db = database("db/database.db")
-	@users = db.execute("SELECT * FROM users")
+	@users = db_all_users()
 	slim(:"users/users")
 end
 
@@ -98,8 +104,7 @@ get ('/users/logout') do
 end
 
 get ('/protected/events/events') do
-	db = database("db/database.db")
-	@events = db.execute("SELECT * FROM events")
+	@events = db_all_events()
 	slim(:"events/events")
 end
 
@@ -108,7 +113,6 @@ get ('/protected3/events/create') do
 end
 
 post ('/events/new') do
-	db = database("db/database.db")
 	name = params[:name]
 	time = params[:time]
 	place = params[:place]
@@ -116,17 +120,16 @@ post ('/events/new') do
 	if name == "" || time == "" || place == ""
 		flash[:error] = "Alla fält måste fyllas i"
 	else
-		db.execute("INSERT INTO events (name, time, place) VALUES (?, ?, ?)", [name, time, place])
+		db_create_event(name, time, place)
 		flash[:notice] = "Eventet har skapats"
 	end
 	redirect('/protected/events/events')
 end
 
 get ('/protected2/events/:id/attendance') do
-	db = database("db/database.db")
-	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
-	@attendance = db.execute("SELECT * FROM attendance WHERE event_id = ?", params[:id])
-	@users = db.execute("SELECT * FROM users")
+	@event = db_event_info(params[:id])
+	@attendance = db_event_attendance(params[:id])
+	@users = db_all_users()
 
 	@attendance_ids = []
 	@attendance.each do |attendance|
@@ -137,30 +140,17 @@ get ('/protected2/events/:id/attendance') do
 end
 
 post ('/events/:id/attendance/new') do
-	db = database("db/database.db")
-
-	all_users = db.execute("SELECT * FROM users")
-
 	attended_user_ids = params[:attended] || []
 	event_id = params[:event_id]
 
-	attended_user_ids.each do |user_id|
-		db.execute("INSERT INTO attendance (event_id, user_id) VALUES (?, ?)", [event_id, user_id])
-	end
-
-	all_users.each do |user|
-		if !attended_user_ids.include?(user["id"].to_s) && db.execute("SELECT * FROM attendance WHERE event_id = ? AND user_id = ?", [event_id, user["id"]]).length > 0
-			db.execute("DELETE FROM attendance WHERE event_id = ? AND user_id = ?", [event_id, user["id"]])
-		end
-	end
+	db_take_attendance(event_id, attended_user_ids)
 
 	flash[:notice] = "Närvaron har uppdaterats"
 	redirect('/protected/events/events')
 end
 
 get ('/protected3/events/:id/edit') do
-	db = database("db/database.db")
-	@event = db.execute("SELECT * FROM events WHERE ID = ?", params[:id]).first
+	@event = db_event_info(params[:id])
 	@name = @event["name"]
 	@time = @event["time"]
 	@place = @event["place"]
@@ -169,54 +159,46 @@ get ('/protected3/events/:id/edit') do
 end
 
 post ('/events/update') do
-	db = database("db/database.db")
 	name = params[:name]
 	time = params[:time]
 	place = params[:place]
 
-	if name != ""
-		db.execute("UPDATE events SET name = ? WHERE ID = ?", [name, params[:id]])
-	end
-	if time != ""
-		db.execute("UPDATE events SET time = ? WHERE ID = ?", [time, params[:id]])
-	end
-	if place != ""
-		db.execute("UPDATE events SET place = ? WHERE ID = ?", [place, params[:id]])
-	end
+	db_update_event(params[:id], name, time, place)
 
 	flash[:notice] = "Eventet har uppdaterats"
 	redirect('/protected/events/events')
 end
 
 get('/protected3/events/:id/delete') do
-	db = database("db/database.db")
-	db.execute("DELETE FROM events WHERE ID = ?", params[:id])
+	db_delete_event(params[:id])
 	flash[:notice] = "Eventet har raderats"
 	redirect('/protected/events/events')
 end
 
 get ('/protected3/users/:id/promote') do
-	db = database("db/database.db")
 	@id = params[:id]
 	@user = db_user_info(@id)
 	slim(:"users/promote")
 end
 
 post ('/users/promote') do
-	db = database("db/database.db")
-	accesslvl = params[:access_lvl]
+	accesslvl = params[:accesslvl]
 	id = params[:id]
 
-	if ![1, 2, 3].include?(accesslvl.to_i)
-		redirect('/protected2/users/users')
+	if accesslvl == ""
+		flash[:error] = "Välj en accessnivå"
+	elsif accesslvl.to_i < 1 || accesslvl.to_i > 3
+		p accesslvl
+		flash[:error] = "Ogiltig accessnivå"
+	else
+		db_user_access_level(id, accesslvl)
 	end
 
-	db.execute("UPDATE users SET accesslvl = ? WHERE ID = ?", [accesslvl, id])
 	redirect('/protected2/users/users')
 end
 
 get ('/protected3/users/:id/delete') do
-	db = database("db/database.db")
-	db.execute("DELETE FROM users WHERE ID = ?", params[:id])
+	db_delete_user(params[:id])
+	flash[:notice] = "Användaren har raderats"
 	redirect('/protected2/users/users')
 end

@@ -4,8 +4,20 @@ h2 signup
 	p.notice = flash[:error]
 
 form action="/users/signup" method="post"
-	input type="text" name="username" placeholder="Username"
-	input type="text" name="email" placeholder="Email"
-	input type="password" name="password" placeholder="Password"
+	- if @username.nil?
+		input type="text" name="username" placeholder="Username"
+	- else
+		input type="text" name="username" value= @username
+
+	- if @email.nil?
+		input type="text" name="email" placeholder="Email"
+	- else
+		input type="text" name="email" value= @email
+
+	- if @password.nil?
+		input type="password" name="password" placeholder="Password"
+	- else
+		input type="password" name="password" value= @password
+
 	input type="submit" value="Signup"
 
