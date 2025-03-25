@@ -1,7 +1,26 @@
 h2 create event
 
 form action="/events/new" method="post" 
-	input type="text" name="name" placeholder="Name"
-	input type="datetime-local" name="time" placeholder="Time"
-	input type="text" name="place" placeholder="Place"
+	-if @name == "" || @name.nil?
+		input type="text" name="name" placeholder="Name"
+	-else
+		input type="text" name="name" placeholder"Name" value= @name
+	
+	-if @time == "" || @time.nil?
+		input type="datetime-local" name="time" placeholder="Time"
+	-else
+		input type="datetime-local" name="time" placeholder="Time" value= @time
+
+	-if @place == "" || @place.nil?
+		input type="text" name="place" placeholder="Place"
+	-else
+		input type="text" name="place" placeholder="Place" value= @place
+
+	select name="group_id"  
+		-@groups.each do |group|
+			option value="#{group['id'].to_s}"  = group['name']
+
+	br
+	br
+
 	input type="submit" value="Create Event"

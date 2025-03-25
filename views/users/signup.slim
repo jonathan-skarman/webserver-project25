@@ -4,20 +4,35 @@ h2 signup
 	p.notice = flash[:error]
 
 form action="/users/signup" method="post"
-	- if @username.nil?
+	- if @username.nil? || @username == ""
 		input type="text" name="username" placeholder="Username"
 	- else
-		input type="text" name="username" value= @username
+		input type="text" name="username" placeholder="Username" value= @username
 
-	- if @email.nil?
+	- if @email.nil? || @email == ""
 		input type="text" name="email" placeholder="Email"
 	- else
-		input type="text" name="email" value= @email
+		input type="text" name="email" placeholder="Email" value= @email
 
-	- if @password.nil?
+	- if @password.nil? || @password == ""
 		input type="password" name="password" placeholder="Password"
 	- else
-		input type="password" name="password" value= @password
+		input type="password" name="password" placeholder="Password" value= @password
+
+	br
+	br
+
+	p What groups would you like to join?
+	- @all_groups.each do |group|
+		- if @groups.include?(group["id"].to_s)
+			input type="checkbox" name="group[]" value= group['id'] checked = "true"
+			= group['name']
+		- else
+			input type="checkbox" name="group[]" value= group['id']
+			= group['name']
+		br
+
+	br
 
 	input type="submit" value="Signup"
 

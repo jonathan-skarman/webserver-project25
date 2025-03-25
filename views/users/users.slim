@@ -15,6 +15,25 @@ ol
 				li
 					| Email: 
 					= user["email"]
+				-# fuck
+				- this_user_groups = []
+				-@user_groups.each do |user_group|
+					- if user_group['user_id'] == user['id']
+						- this_user_groups << user_group['group_id']
+				- should_show = false
+				- this_user_groups.each do |group|
+					- if @groups.include?(group)
+						- should_show = true
+				- if should_show
+					li
+						| Group: 
+						- this_user_group_names = []
+						- this_user_groups.each do |group|
+							- @group_names.each do |group_name|
+								- if group_name['id'] == group
+									-this_user_group_names << group_name['name']
+						= this_user_group_names.join(", ")
+				-# fuck
 				- if !session["access_lvl"].nil?
 					- if session["access_lvl"] >= 3
 						li

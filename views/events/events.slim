@@ -7,28 +7,31 @@ h2 events
 	p.notice = flash[:notice]
 
 ol 
+	-p @user_groups
 	- @events.each do |event|
-		li
-			ul
-				li
-					| Name: 
-					= event["name"]
-				li
-					| Time: 
-					= event["time"]
-				li
-					| Place: 
-					= event["place"]
-				- if !session["access_lvl"].nil?
-					- if session["access_lvl"] >= 2
-						li
-							| Take attendance:
-							a href="/protected2/events/#{event["id"]}/attendance" Take attendance
-					- if session["access_lvl"] >= 3
-						li 
-							| Edit event:
-							a href="/protected3/events/#{event["id"]}/edit" Edit event
-						li
-							| Delete event:
-							a href="/protected3/events/#{event["id"]}/delete" Delete event
-		br
+		-p event["group_id"]
+		-if @user_groups.include?(event["group_id"])
+			li
+				ul
+					li
+						| Name: 
+						= event["name"]
+					li
+						| Time: 
+						= event["time"]
+					li
+						| Place: 
+						= event["place"]
+					- if !session["access_lvl"].nil?
+						- if session["access_lvl"] >= 2
+							li
+								| Take attendance:
+								a href="/protected2/events/#{event["id"]}/attendance" Take attendance
+						- if session["access_lvl"] >= 3
+							li 
+								| Edit event:
+								a href="/protected3/events/#{event["id"]}/edit" Edit event
+							li
+								| Delete event:
+								a href="/protected3/events/#{event["id"]}/delete" Delete event
+			br

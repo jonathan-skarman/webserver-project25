@@ -67,7 +67,9 @@ post ('/users/login') do
 end
 
 get ('/users/signup') do
-	@username, @email, @password = session[:signup]
+	@username, @email, @password, @groups = session[:signup]
+	@groups = [] if @groups == nil
+	@all_groups = db_all_groups()
 	session[:signup] = nil
 	slim(:"users/signup")
 end
@@ -76,9 +78,10 @@ post ('/users/signup') do
 	@username = params[:username]
 	@email = params[:email]
 	@password = params[:password]
-	session[:signup] = [@username, @email, @password]
+	@groups = params[:group] || []
+	session[:signup] = [@username, @email, @password, @groups]
 
-	if @username == "" || @email == "" || @password == ""
+	if @username == "" || @email == "" || @password == "" || @groups == ""
 		flash[:error] = "Alla fält måste fyllas i"
 		redirect('/users/signup')
 	elsif !email_verification(@email)
@@ -88,13 +91,22 @@ post ('/users/signup') do
 		flash[:error] = "Användarnamnet är upptaget"
 		redirect('/users/signup')
 	else
-		db_create_user(@username, @email, @password)
+		db_create_user(@username, @email, @password, @groups)
 		redirect('/users/login')
 	end
 end
 
 get ('/protected2/users/users') do
 	@users = db_all_users()
+	@user_groups = db_all_user_groups()
+	@group_names = db_all_groups()
+	@groups = db_user_groups(session[:user_id])
+
+	p "@users: #{@users}"
+	p "@user_groups: #{@user_groups}"
+	p "@group_names: #{@group_names}"
+	p "@groups: #{@groups}"
+
 	slim(:"users/users")
 end
 
@@ -105,25 +117,35 @@ end
 
 get ('/protected/events/events') do
 	@events = db_all_events()
+	@user_groups = db_user_groups(session[:user_id])
 	slim(:"events/events")
 end
 
 get ('/protected3/events/create') do
+	@groups = db_group_info(db_user_groups(session[:user_id]))
+	@groups = [] if @groups == nil
+	@name, @time, @place, @group_id = session[:event]
+	session[:event] = nil
+
 	slim(:"events/create")
 end
 
 post ('/events/new') do
-	name = params[:name]
-	time = params[:time]
-	place = params[:place]
+	@name = params[:name]
+	@time = params[:time]
+	@place = params[:place]
+	@group_id = params[:group_id]
 
-	if name == "" || time == "" || place == ""
+	if @name == "" || @time == "" || @place == "" || @group_id == ""
+		session[:event] = [@name, @time, @place, @group_id]
 		flash[:error] = "Alla fält måste fyllas i"
+		redirect('/protected3/events/create')
 	else
-		db_create_event(name, time, place)
+		db_create_event(@name, @time, @place, @group_id)
 		flash[:notice] = "Eventet har skapats"
+		redirect('/protected/events/events')
 	end
-	redirect('/protected/events/events')
+
 end
 
 get ('/protected2/events/:id/attendance') do
