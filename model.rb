@@ -33,7 +33,7 @@ def password_verification(username, password)
 end
 
 def email_verification(email)
-	list = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "elev.ga.ntig.se"]
+	list = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "elev.ga.ntig.se", "telia.se", "telia.com", "comhem.se", "bredband2.com", "bredbandsbolaget.se", "bahnhof.se", "tele2.se", "telenor.se", "3.se", "hallon.se", "halebop.se", "vimla.se", "comviq.se", "tele2.se", "telenor.se", "tre.se", "hallon.se", "halebop.se", "vimla.se", "comviq.se"]
 	host = email.split("@").last
 
 	list.include?(host)
