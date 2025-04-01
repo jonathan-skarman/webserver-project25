@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require_relative 'model.rb'
 
 enable :sessions
+include Model
 
 before ('/protected/*') do
 	if session[:user_id] == nil
