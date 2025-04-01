@@ -116,7 +116,7 @@ end
 
 # Finds the groups a user is in
 #
-# @params [Integer] user_id the ID of the user
+# @param [Integer] user_id the ID of the user
 #
 # @return [Array] the group IDs the user is in
 #
@@ -204,7 +204,7 @@ end
 
 # Returns the event information for a given event ID
 #
-# @params [Integer] id the ID of the event
+# @param [Integer] id the ID of the event
 #
 # @return [Hash] the event information
 #
@@ -216,7 +216,7 @@ end
 
 # Returns the attendance information for a given event ID
 #
-# @params [Integer] id the ID of the event
+# @param [Integer] id the ID of the event
 #
 # @return [Array] the attendance information
 #
@@ -228,8 +228,8 @@ end
 
 # Adds a new attendance record for a given event ID and array of user IDs
 #
-# @params [Integer] event_id the ID of the event
-# @params [Array] users the IDs of the users who attended the event
+# @param [Integer] event_id the ID of the event
+# @param [Array] users the IDs of the users who attended the event
 #
 # @see Model#database
 def db_take_attendance(event_id, users)
@@ -249,10 +249,10 @@ end
 
 # Updates an event in the database
 #
-# @params [Integer] id the ID of the event
-# @params [String] name the new name of the event
-# @params [String] time the new time of the event
-# @params [String] place the new place of the event
+# @param [Integer] id the ID of the event
+# @param [String] name the new name of the event
+# @param [String] time the new time of the event
+# @param [String] place the new place of the event
 #
 # @see Model#database
 def db_update_event(id, name, time, place)
@@ -272,7 +272,7 @@ end
 
 # Deletes an event from the database
 #
-# @params [Integer] id the ID of the event
+# @param [Integer] id the ID of the event
 #
 # @see Model#database
 def db_delete_event(id)
@@ -283,8 +283,8 @@ end
 
 # Updates a user's access level in the database
 #
-# @params [Integer] id the ID of the user
-# @params [String] accesslvl the new access level of the user
+# @param [Integer] id the ID of the user
+# @param [String] accesslvl the new access level of the user
 #
 # # @see Model#database
 def db_user_access_level(id, accesslvl)
@@ -294,11 +294,13 @@ end
 
 # Deletes a user from the database
 #
-# @params [Integer] id the ID of the user
+# @param [Integer] id the ID of the user
 #
 # @see Model#database
 def db_delete_user(id)
 	db = database("db/database.db")
 	db.execute("DELETE FROM attendance WHERE user_id = ?", id)
 	db.execute("DELETE FROM users WHERE ID = ?", id)
+end
+
 end

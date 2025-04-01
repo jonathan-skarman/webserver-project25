@@ -73,6 +73,11 @@
   
   
   
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></dd>
+  </dl>
+  
   
 
   
@@ -80,6 +85,16 @@
   
 </div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span>
+    
+  
+    
+  
+</p>
 
 
 
@@ -112,7 +127,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Redirect to home page if user is logged in Otherwise redirect to login page.</p>
+</div></span>
   
 </li>
 
@@ -134,7 +151,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display the event (specific) attendance page Pre-fill the form with data from the database.</p>
+</div></span>
   
 </li>
 
@@ -156,7 +175,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display the list of all users in the same group as the logged in user.</p>
+</div></span>
   
 </li>
 
@@ -178,7 +199,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle event deletion.</p>
+</div></span>
   
 </li>
 
@@ -200,7 +223,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display the event (specific) edit page Pre-fill the form with the current data.</p>
+</div></span>
   
 </li>
 
@@ -222,7 +247,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display the event creation page.</p>
+</div></span>
   
 </li>
 
@@ -244,7 +271,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle user deletion Delete the user from the database and all related data (attendance).</p>
+</div></span>
   
 </li>
 
@@ -266,7 +295,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display the user (specific) access level edit page Only available for users with access level 3.</p>
+</div></span>
   
 </li>
 
@@ -288,7 +319,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display the list of all events in the same group as the logged in user Has additional options for users with higher access levels.</p>
+</div></span>
   
 </li>
 
@@ -310,7 +343,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display home page.</p>
+</div></span>
   
 </li>
 
@@ -332,7 +367,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display login page If the user has tried to sign up, pre-fill the form with the data.</p>
+</div></span>
   
 </li>
 
@@ -354,7 +391,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Log out the user by destroying the session and redirecting to home page.</p>
+</div></span>
   
 </li>
 
@@ -376,7 +415,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Display signup page If the user has tried to sign up, pre-fill the form with the data.</p>
+</div></span>
   
 </li>
 
@@ -398,7 +439,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle event attendance form submission Check if the event id is not empty If any check fails, set flash message and redirect to event attendance page If all checks pass, update the attendance and redirect to events page.</p>
+</div></span>
   
 </li>
 
@@ -420,7 +463,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle event creation form submission Check if the name, time, place and group are not empty If any check fails, set flash message and redirect to event creation page If all checks pass, create the event and redirect to events page.</p>
+</div></span>
   
 </li>
 
@@ -442,7 +487,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle event edit form submission Check if the name, time, place and id are not empty If any check fails, set flash message and redirect to event edit page If all checks pass, update the event and redirect to events page.</p>
+</div></span>
   
 </li>
 
@@ -464,7 +511,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle login form submission Check if the username and password are not empty Check if the username and password are correct If correct, set session variables and redirect to home page If incorrect, set flash message and redirect to login page.</p>
+</div></span>
   
 </li>
 
@@ -486,7 +535,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle user access level edit form submission Check if the access level is not empty and is valid (1-3) If any check fails, set flash message and redirect to user access level edit page If all checks pass, update the access level and redirect to users page.</p>
+</div></span>
   
 </li>
 
@@ -508,7 +559,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Handle signup form submission Check if the username, email, password and groups are not empty Check if the email is valid Check if the username is not already taken If all checks pass, create the user and redirect to login page If any check fails, set flash message and redirect to signup page.</p>
+</div></span>
   
 </li>
 
@@ -516,6 +569,17 @@
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Model.html#database-instance_method" title="Model#database (method)">#database</a></span>, <span class='object_link'><a href="Model.html#db_all_events-instance_method" title="Model#db_all_events (method)">#db_all_events</a></span>, <span class='object_link'><a href="Model.html#db_all_groups-instance_method" title="Model#db_all_groups (method)">#db_all_groups</a></span>, <span class='object_link'><a href="Model.html#db_all_user_groups-instance_method" title="Model#db_all_user_groups (method)">#db_all_user_groups</a></span>, <span class='object_link'><a href="Model.html#db_all_users-instance_method" title="Model#db_all_users (method)">#db_all_users</a></span>, <span class='object_link'><a href="Model.html#db_create_event-instance_method" title="Model#db_create_event (method)">#db_create_event</a></span>, <span class='object_link'><a href="Model.html#db_create_user-instance_method" title="Model#db_create_user (method)">#db_create_user</a></span>, <span class='object_link'><a href="Model.html#db_delete_event-instance_method" title="Model#db_delete_event (method)">#db_delete_event</a></span>, <span class='object_link'><a href="Model.html#db_delete_user-instance_method" title="Model#db_delete_user (method)">#db_delete_user</a></span>, <span class='object_link'><a href="Model.html#db_event_attendance-instance_method" title="Model#db_event_attendance (method)">#db_event_attendance</a></span>, <span class='object_link'><a href="Model.html#db_event_info-instance_method" title="Model#db_event_info (method)">#db_event_info</a></span>, <span class='object_link'><a href="Model.html#db_group_id-instance_method" title="Model#db_group_id (method)">#db_group_id</a></span>, <span class='object_link'><a href="Model.html#db_group_info-instance_method" title="Model#db_group_info (method)">#db_group_info</a></span>, <span class='object_link'><a href="Model.html#db_take_attendance-instance_method" title="Model#db_take_attendance (method)">#db_take_attendance</a></span>, <span class='object_link'><a href="Model.html#db_update_event-instance_method" title="Model#db_update_event (method)">#db_update_event</a></span>, <span class='object_link'><a href="Model.html#db_user_access_level-instance_method" title="Model#db_user_access_level (method)">#db_user_access_level</a></span>, <span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">#db_user_groups</a></span>, <span class='object_link'><a href="Model.html#db_user_info-instance_method" title="Model#db_user_info (method)">#db_user_info</a></span>, <span class='object_link'><a href="Model.html#db_user_info_username-instance_method" title="Model#db_user_info_username (method)">#db_user_info_username</a></span>, <span class='object_link'><a href="Model.html#email_verification-instance_method" title="Model#email_verification (method)">#email_verification</a></span>, <span class='object_link'><a href="Model.html#password_create-instance_method" title="Model#password_create (method)">#password_create</a></span>, <span class='object_link'><a href="Model.html#password_verification-instance_method" title="Model#password_verification (method)">#password_verification</a></span></p>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -531,22 +595,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Redirect to home page if user is logged in Otherwise redirect to login page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-31
-32
-33
-34
-35
-36
-37</pre>
+42
+43
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 42</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
@@ -569,32 +646,76 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the event (specific) attendance page Pre-fill the form with data from the database</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the event</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_event_info-instance_method" title="Model#db_event_info (method)">Model#db_event_info</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_event_attendance-instance_method" title="Model#db_event_attendance (method)">Model#db_event_attendance</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_all_users-instance_method" title="Model#db_all_users (method)">Model#db_all_users</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162</pre>
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 228</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected2/events/:id/attendance</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='ivar'>@event</span> <span class='op'>=</span> <span class='id identifier rubyid_db_event_info'>db_event_info</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-	<span class='ivar'>@attendance</span> <span class='op'>=</span> <span class='id identifier rubyid_db_event_attendance'>db_event_attendance</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-	<span class='ivar'>@users</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_users'>db_all_users</span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@event</span> <span class='op'>=</span> <span class='id identifier rubyid_db_event_info'><span class='object_link'><a href="Model.html#db_event_info-instance_method" title="Model#db_event_info (method)">db_event_info</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='ivar'>@attendance</span> <span class='op'>=</span> <span class='id identifier rubyid_db_event_attendance'><span class='object_link'><a href="Model.html#db_event_attendance-instance_method" title="Model#db_event_attendance (method)">db_event_attendance</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='ivar'>@users</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_users'><span class='object_link'><a href="Model.html#db_all_users-instance_method" title="Model#db_all_users (method)">db_all_users</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
 
 	<span class='ivar'>@attendance_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 	<span class='ivar'>@attendance</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_attendance'>attendance</span><span class='op'>|</span>
@@ -617,39 +738,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the list of all users in the same group as the logged in user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">Model#db_user_groups</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111</pre>
+151
+152
+153
+154
+155
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 151</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected2/users/users</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='ivar'>@users</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_users'>db_all_users</span><span class='lparen'>(</span><span class='rparen'>)</span>
-	<span class='ivar'>@user_groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_user_groups'>db_all_user_groups</span><span class='lparen'>(</span><span class='rparen'>)</span>
-	<span class='ivar'>@group_names</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_groups'>db_all_groups</span><span class='lparen'>(</span><span class='rparen'>)</span>
-	<span class='ivar'>@groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_groups'>db_user_groups</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-
-	<span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@users: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@users</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-	<span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@user_groups: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@user_groups</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-	<span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@group_names: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@group_names</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-	<span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@groups: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@groups</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+	<span class='ivar'>@users</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_users'><span class='object_link'><a href="Model.html#db_all_users-instance_method" title="Model#db_all_users (method)">db_all_users</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@user_groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_user_groups'><span class='object_link'><a href="Model.html#db_all_user_groups-instance_method" title="Model#db_all_user_groups (method)">db_all_user_groups</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@group_names</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_groups'><span class='object_link'><a href="Model.html#db_all_groups-instance_method" title="Model#db_all_groups (method)">db_all_groups</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_groups'><span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">db_user_groups</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
 	<span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;users/users&quot;</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -667,23 +798,58 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle event deletion</p>
+
+<p># @see Model#db_delete_event</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the event</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-194
-195
-196
-197
-198</pre>
+297
+298
+299
+300
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 194</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 297</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected3/events/:id/delete</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='id identifier rubyid_db_delete_event'>db_delete_event</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_db_delete_event'><span class='object_link'><a href="Model.html#db_delete_event-instance_method" title="Model#db_delete_event (method)">db_delete_event</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Eventet har raderats</span><span class='tstring_end'>&quot;</span></span>
 	<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/events/events</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -701,26 +867,66 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the event (specific) edit page Pre-fill the form with the current data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the event</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_event_info-instance_method" title="Model#db_event_info (method)">Model#db_event_info</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-174
-175
-176
-177
-178
-179
-180
-181</pre>
+266
+267
+268
+269
+270
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 266</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected3/events/:id/edit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='ivar'>@event</span> <span class='op'>=</span> <span class='id identifier rubyid_db_event_info'>db_event_info</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='ivar'>@event</span> <span class='op'>=</span> <span class='id identifier rubyid_db_event_info'><span class='object_link'><a href="Model.html#db_event_info-instance_method" title="Model#db_event_info (method)">db_event_info</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 	<span class='ivar'>@name</span> <span class='op'>=</span> <span class='ivar'>@event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 	<span class='ivar'>@time</span> <span class='op'>=</span> <span class='ivar'>@event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>time</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 	<span class='ivar'>@place</span> <span class='op'>=</span> <span class='ivar'>@event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>place</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -741,26 +947,48 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the event creation page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_group_info-instance_method" title="Model#db_group_info (method)">Model#db_group_info</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">Model#db_user_groups</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-124
-125
-126
-127
-128
-129
-130
-131</pre>
+182
+183
+184
+185
+186
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 182</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected3/events/create</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='ivar'>@groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_group_info'>db_group_info</span><span class='lparen'>(</span><span class='id identifier rubyid_db_user_groups'>db_user_groups</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='ivar'>@groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_group_info'><span class='object_link'><a href="Model.html#db_group_info-instance_method" title="Model#db_group_info (method)">db_group_info</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_db_user_groups'><span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">db_user_groups</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
 	<span class='ivar'>@groups</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@groups</span> <span class='op'>==</span> <span class='kw'>nil</span>
 	<span class='ivar'>@name</span><span class='comma'>,</span> <span class='ivar'>@time</span><span class='comma'>,</span> <span class='ivar'>@place</span><span class='comma'>,</span> <span class='ivar'>@group_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:event</span><span class='rbracket'>]</span>
 	<span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:event</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -781,23 +1009,63 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle user deletion Delete the user from the database and all related data (attendance)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the user</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_delete_user-instance_method" title="Model#db_delete_user (method)">Model#db_delete_user</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-222
-223
-224
-225
-226</pre>
+346
+347
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 222</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 346</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected3/users/:id/delete</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='id identifier rubyid_db_delete_user'>db_delete_user</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_db_delete_user'><span class='object_link'><a href="Model.html#db_delete_user-instance_method" title="Model#db_delete_user (method)">db_delete_user</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Användaren har raderats</span><span class='tstring_end'>&quot;</span></span>
 	<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected2/users/users</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -815,24 +1083,64 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the user (specific) access level edit page Only available for users with access level 3</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the user</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_user_info-instance_method" title="Model#db_user_info (method)">Model#db_user_info</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-200
-201
-202
-203
-204</pre>
+309
+310
+311
+312
+313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 309</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected3/users/:id/promote</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='ivar'>@id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span>
-	<span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_info'>db_user_info</span><span class='lparen'>(</span><span class='ivar'>@id</span><span class='rparen'>)</span>
+	<span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_info'><span class='object_link'><a href="Model.html#db_user_info-instance_method" title="Model#db_user_info (method)">db_user_info</a></span></span><span class='lparen'>(</span><span class='ivar'>@id</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;users/promote&quot;</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -849,24 +1157,46 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the list of all events in the same group as the logged in user Has additional options for users with higher access levels</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_all_events-instance_method" title="Model#db_all_events (method)">Model#db_all_events</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">Model#db_user_groups</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-118
-119
-120
-121
-122</pre>
+172
+173
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 172</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/events/events</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='ivar'>@events</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_events'>db_all_events</span><span class='lparen'>(</span><span class='rparen'>)</span>
-	<span class='ivar'>@user_groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_groups'>db_user_groups</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='ivar'>@events</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_events'><span class='object_link'><a href="Model.html#db_all_events-instance_method" title="Model#db_all_events (method)">db_all_events</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@user_groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_groups'><span class='object_link'><a href="Model.html#db_user_groups-instance_method" title="Model#db_user_groups (method)">db_user_groups</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;events/events&quot;</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -883,22 +1213,42 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display home page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_user_info-instance_method" title="Model#db_user_info (method)">Model#db_user_info</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-39
-40
-41
-42</pre>
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 53</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/home</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-	<span class='ivar'>@user_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_info'>db_user_info</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='ivar'>@user_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_info'><span class='object_link'><a href="Model.html#db_user_info-instance_method" title="Model#db_user_info (method)">db_user_info</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:home</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -915,23 +1265,36 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display login page If the user has tried to sign up, pre-fill the form with the data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-44
-45
-46
-47
-48
-49
-50
-51</pre>
+61
+62
+63
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 61</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/login</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:signup</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>nil</span>
@@ -955,19 +1318,32 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Log out the user by destroying the session and redirecting to home page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-113
-114
-115
-116</pre>
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 162</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/logout</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
@@ -987,27 +1363,47 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display signup page If the user has tried to sign up, pre-fill the form with the data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_all_groups-instance_method" title="Model#db_all_groups (method)">Model#db_all_groups</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-69
-70
-71
-72
-73
-74
-75</pre>
+103
+104
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 103</span>
 
 <span class='id identifier rubyid_get'>get</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/signup</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='ivar'>@username</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@password</span><span class='comma'>,</span> <span class='ivar'>@groups</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:signup</span><span class='rbracket'>]</span>
 	<span class='ivar'>@groups</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@groups</span> <span class='op'>==</span> <span class='kw'>nil</span>
-	<span class='ivar'>@all_groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_groups'>db_all_groups</span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@all_groups</span> <span class='op'>=</span> <span class='id identifier rubyid_db_all_groups'><span class='object_link'><a href="Model.html#db_all_groups-instance_method" title="Model#db_all_groups (method)">db_all_groups</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:signup</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
 	<span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;users/signup&quot;</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1025,30 +1421,86 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle event attendance form submission Check if the event id is not empty If any check fails, set flash message and redirect to event attendance page If all checks pass, update the attendance and redirect to events page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the event</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>:attended,</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the IDs of the users who attended the event</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_take_attendance-instance_method" title="Model#db_take_attendance (method)">Model#db_take_attendance</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-164
-165
-166
-167
-168
-169
-170
-171
-172</pre>
+250
+251
+252
+253
+254
+255
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 250</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/events/:id/attendance/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='id identifier rubyid_attended_user_ids'>attended_user_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:attended</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 	<span class='id identifier rubyid_event_id'>event_id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:event_id</span><span class='rbracket'>]</span>
 
-	<span class='id identifier rubyid_db_take_attendance'>db_take_attendance</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_attended_user_ids'>attended_user_ids</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_db_take_attendance'><span class='object_link'><a href="Model.html#db_take_attendance-instance_method" title="Model#db_take_attendance (method)">db_take_attendance</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_attended_user_ids'>attended_user_ids</span><span class='rparen'>)</span>
 
 	<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Närvaron har uppdaterats</span><span class='tstring_end'>&quot;</span></span>
 	<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/events/events</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1067,32 +1519,120 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle event creation form submission Check if the name, time, place and group are not empty If any check fails, set flash message and redirect to event creation page If all checks pass, create the event and redirect to events page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:name,</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the name of the event</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>:time,</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the time of the event</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>:place,</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the place of the event</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>:group_id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the group the event belongs to</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_create_event-instance_method" title="Model#db_create_event (method)">Model#db_create_event</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149</pre>
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 202</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/events/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>
@@ -1105,7 +1645,7 @@
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Alla fält måste fyllas i</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected3/events/create</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 	<span class='kw'>else</span>
-		<span class='id identifier rubyid_db_create_event'>db_create_event</span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='comma'>,</span> <span class='ivar'>@time</span><span class='comma'>,</span> <span class='ivar'>@place</span><span class='comma'>,</span> <span class='ivar'>@group_id</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_db_create_event'><span class='object_link'><a href="Model.html#db_create_event-instance_method" title="Model#db_create_event (method)">db_create_event</a></span></span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='comma'>,</span> <span class='ivar'>@time</span><span class='comma'>,</span> <span class='ivar'>@place</span><span class='comma'>,</span> <span class='ivar'>@group_id</span><span class='rparen'>)</span>
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Eventet har skapats</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/events/events</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 	<span class='kw'>end</span>
@@ -1125,32 +1665,52 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle event edit form submission Check if the name, time, place and id are not empty If any check fails, set flash message and redirect to event edit page If all checks pass, update the event and redirect to events page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_update_event-instance_method" title="Model#db_update_event (method)">Model#db_update_event</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192</pre>
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 281</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/events/update</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>
 	<span class='id identifier rubyid_time'>time</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:time</span><span class='rbracket'>]</span>
 	<span class='id identifier rubyid_place'>place</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:place</span><span class='rbracket'>]</span>
 
-	<span class='id identifier rubyid_db_update_event'>db_update_event</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='comma'>,</span> <span class='id identifier rubyid_place'>place</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_db_update_event'><span class='object_link'><a href="Model.html#db_update_event-instance_method" title="Model#db_update_event (method)">db_update_event</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='comma'>,</span> <span class='id identifier rubyid_place'>place</span><span class='rparen'>)</span>
 
 	<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Eventet har uppdaterats</span><span class='tstring_end'>&quot;</span></span>
 	<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/events/events</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1169,38 +1729,98 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle login form submission Check if the username and password are not empty Check if the username and password are correct If correct, set session variables and redirect to home page If incorrect, set flash message and redirect to login page</p>
+
+<p>If the user has just signed up, pre-fill the form with the data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:username</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the username of the user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>:password</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the password of the user</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#password_verification-instance_method" title="Model#password_verification (method)">Model#password_verification</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_user_info_username-instance_method" title="Model#db_user_info_username (method)">Model#db_user_info_username</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67</pre>
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 83</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/login</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Användarnamn och lösenord måste fyllas i</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/login</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-	<span class='kw'>elsif</span> <span class='id identifier rubyid_password_verification'>password_verification</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+	<span class='kw'>elsif</span> <span class='id identifier rubyid_password_verification'><span class='object_link'><a href="Model.html#password_verification-instance_method" title="Model#password_verification (method)">password_verification</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
-		<span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_info_username'>db_user_info_username</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='id identifier rubyid_db_user_info_username'><span class='object_link'><a href="Model.html#db_user_info_username-instance_method" title="Model#db_user_info_username (method)">db_user_info_username</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 		<span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 		<span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:access_lvl</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>accesslvl</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected/home</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1223,30 +1843,86 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle user access level edit form submission Check if the access level is not empty and is valid (1-3) If any check fails, set flash message and redirect to user access level edit page If all checks pass, update the access level and redirect to users page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:id,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ID of the user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>:accesslvl,</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the new access level of the user</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#db_user_access_level-instance_method" title="Model#db_user_access_level (method)">Model#db_user_access_level</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220</pre>
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 324</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/promote</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='id identifier rubyid_accesslvl'>accesslvl</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:accesslvl</span><span class='rbracket'>]</span>
@@ -1258,7 +1934,7 @@
 		<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_accesslvl'>accesslvl</span>
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ogiltig accessnivå</span><span class='tstring_end'>&quot;</span></span>
 	<span class='kw'>else</span>
-		<span class='id identifier rubyid_db_user_access_level'>db_user_access_level</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_accesslvl'>accesslvl</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_db_user_access_level'><span class='object_link'><a href="Model.html#db_user_access_level-instance_method" title="Model#db_user_access_level (method)">db_user_access_level</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_accesslvl'>accesslvl</span><span class='rparen'>)</span>
 	<span class='kw'>end</span>
 
 	<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/protected2/users/users</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1277,36 +1953,128 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle signup form submission Check if the username, email, password and groups are not empty Check if the email is valid Check if the username is not already taken If all checks pass, create the user and redirect to login page If any check fails, set flash message and redirect to signup page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>username,</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the username of the user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email,</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the email of the user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>password,</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the password of the user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group,</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the groups the user selected</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#email_verification-instance_method" title="Model#email_verification (method)">Model#email_verification</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_user_info_username-instance_method" title="Model#db_user_info_username (method)">Model#db_user_info_username</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#db_create_user-instance_method" title="Model#db_create_user (method)">Model#db_create_user</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97</pre>
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 126</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/signup</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
 	<span class='ivar'>@username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
@@ -1318,14 +2086,14 @@
 	<span class='kw'>if</span> <span class='ivar'>@username</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='ivar'>@email</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='ivar'>@password</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='ivar'>@groups</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Alla fält måste fyllas i</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/signup</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-	<span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_email_verification'>email_verification</span><span class='lparen'>(</span><span class='ivar'>@email</span><span class='rparen'>)</span>
+	<span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_email_verification'><span class='object_link'><a href="Model.html#email_verification-instance_method" title="Model#email_verification (method)">email_verification</a></span></span><span class='lparen'>(</span><span class='ivar'>@email</span><span class='rparen'>)</span>
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ogiltig e-postadress</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/signup</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-	<span class='kw'>elsif</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_db_user_info_username'>db_user_info_username</span><span class='lparen'>(</span><span class='ivar'>@username</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+	<span class='kw'>elsif</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_db_user_info_username'><span class='object_link'><a href="Model.html#db_user_info_username-instance_method" title="Model#db_user_info_username (method)">db_user_info_username</a></span></span><span class='lparen'>(</span><span class='ivar'>@username</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
 		<span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Användarnamnet är upptaget</span><span class='tstring_end'>&quot;</span></span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/signup</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 	<span class='kw'>else</span>
-		<span class='id identifier rubyid_db_create_user'>db_create_user</span><span class='lparen'>(</span><span class='ivar'>@username</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@password</span><span class='comma'>,</span> <span class='ivar'>@groups</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_db_create_user'><span class='object_link'><a href="Model.html#db_create_user-instance_method" title="Model#db_create_user (method)">db_create_user</a></span></span><span class='lparen'>(</span><span class='ivar'>@username</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@password</span><span class='comma'>,</span> <span class='ivar'>@groups</span><span class='rparen'>)</span>
 		<span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/login</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 	<span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -1339,7 +2107,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Apr  1 08:15:57 2025 by
+  Generated on Tue Apr  1 09:36:43 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.3.4).
 </div>

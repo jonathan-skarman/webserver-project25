@@ -2,9 +2,10 @@ require 'sinatra'
 require 'slim'
 require 'sinatra/reloader'
 require 'sinatra/flash'
-require_relative 'model.rb'
+require_relative 'model/model.rb'
 
 enable :sessions
+
 include Model
 
 # Checks if the user is logged in
@@ -74,8 +75,8 @@ end
 #
 # If the user has just signed up, pre-fill the form with the data
 #
-# @params [String] :username, the username of the user
-# @params [String] :password, the password of the user
+# @param [String] :username the username of the user
+# @param [String] :password the password of the user
 #
 # @see Model#password_verification
 # @see Model#db_user_info_username
@@ -114,10 +115,10 @@ end
 # If all checks pass, create the user and redirect to login page
 # If any check fails, set flash message and redirect to signup page
 #
-# @param [String] :username, the username of the user
-# @param [String] :email, the email of the user
-# @param [String] :password, the password of the user
-# @param [Array] :group, the groups the user selected
+# @param [String] username, the username of the user
+# @param [String] email, the email of the user
+# @param [String] password, the password of the user
+# @param [Array] group, the groups the user selected
 #
 # @see Model#email_verification
 # @see Model#db_user_info_username
@@ -192,8 +193,8 @@ end
 # If any check fails, set flash message and redirect to event creation page
 # If all checks pass, create the event and redirect to events page
 #
-# @params [String] :name, the name of the event
-# @params [String] :time, the time of the event
+# @param [String] :name, the name of the event
+# @param [String] :time, the time of the event
 # @param [String] :place, the place of the event
 # @param [Integer] :group_id, the ID of the group the event belongs to
 #
@@ -242,8 +243,8 @@ end
 # If any check fails, set flash message and redirect to event attendance page
 # If all checks pass, update the attendance and redirect to events page
 #
-# @params [Integer] :id, the ID of the event
-# @params [Array] :attended, the IDs of the users who attended the event
+# @param [Integer] :id, the ID of the event
+# @param [Array] :attended, the IDs of the users who attended the event
 #
 # @see Model#db_take_attendance
 post ('/events/:id/attendance/new') do
@@ -290,7 +291,7 @@ end
 
 # Handle event deletion
 #
-# @params [Integer] :id, the ID of the event
+# @param [Integer] :id, the ID of the event
 #
 # # @see Model#db_delete_event
 get('/protected3/events/:id/delete') do
@@ -316,8 +317,8 @@ end
 # If any check fails, set flash message and redirect to user access level edit page
 # If all checks pass, update the access level and redirect to users page
 #
-# @params [Integer] :id, the ID of the user
-# @params [Integer] :accesslvl, the new access level of the user
+# @param [Integer] :id, the ID of the user
+# @param [Integer] :accesslvl, the new access level of the user
 #
 # @see Model#db_user_access_level
 post ('/users/promote') do
@@ -339,7 +340,7 @@ end
 # Handle user deletion
 # Delete the user from the database and all related data (attendance)
 #
-# @params [Integer] :id, the ID of the user
+# @param [Integer] :id, the ID of the user
 #
 # @see Model#db_delete_user
 get ('/protected3/users/:id/delete') do
