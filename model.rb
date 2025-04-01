@@ -1,6 +1,8 @@
 require 'bcrypt'
 require 'sqlite3'
 
+module Model
+
 
 def database(path)
 	db = SQLite3::Database.new(path)
